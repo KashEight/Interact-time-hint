@@ -1,8 +1,12 @@
 {
-    "name": Interact time hint
-    "description": Show Interact tume hint when seeing interactable objects
-    "author": kash 
-    "contact": http://steamcommunity.com/id/_kash/
-    "version": beta-1.0 
-    "priority": 50
+    "name": "Interact time hint",
+    "description": "Show Interact tume hint when seeing interactable objects.",
+    "author": "kash",
+    "contact": "http://steamcommunity.com/id/_kash/",
+    "version": "beta-1.0",
+    "priority": "50",
+    "hooks":
+    [
+        {"hook_id": "lib/units/interactions/interactionext", "script_path": "lua/InteractTime.lua"}
+    ]
 }
