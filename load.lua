@@ -5,7 +5,7 @@ end
 function executeScript(script)
     local requiredScript = script:lower()
     local hook_files = {
-        ["lib/units/interactions/interactionext"] = "InteractTime.lua"
+        ["lib/managers/hud/hudinteraction"] = "InteractTime.lua"
     }
     if hook_files[requiredScript] then
         local fileName = ModPath .. "lua/" .. hook_files[requiredScript]
