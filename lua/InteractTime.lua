@@ -1,7 +1,11 @@
-local show_interact_original = HUDInteraction.show_interact
+local selected_original = BaseInteractionExt.selected
 
-function HUDInteraction:show_interact(data)
-    self:remove_interact(self._hud_panel:child(self._child_name_text))
-	self._hud_panel:child(self._child_name_text):set_text("hoge")
-    return show_interact_original(self, data)
+function BaseInteractionExt:selected(player)
+	selected_original(self, player)
+	managers.hud:show_interact({
+		text = managers.localization:text("hoge", self:_btn_interact()),
+		icon = self._tweak_data.icon,
+		force = true
+	})
+	return true
 end
