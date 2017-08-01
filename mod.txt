@@ -3,7 +3,7 @@
     "description": "Show Interact tume hint when seeing interactable objects.",
     "author": "kash",
     "contact": "http://steamcommunity.com/id/_kash/",
-    "version": "beta-1.0",
+    "version": "v1.0",
     "priority": "50",
     "hooks":
     [
