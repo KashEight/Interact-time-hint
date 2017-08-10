@@ -2,7 +2,7 @@
 Show interact time hint when seeing interactable objects.
 
 # Required Mod
-BLT(Better Lua injecTor) made by *JamesWilko*, *SirWaddles* [🔗](https://github.com/JamesWilko/Payday-2-BLT)
+BLT(Better Lua Tool) made by *JamesWilko*, *SirWaddles* [🔗](https://github.com/JamesWilko/Payday-2-BLT)
 
 # How to install
 Put `Interact-time-hint` to `C:\Program Files (x86)\Steam\steamapps\common\PAYDAY 2\mods`
