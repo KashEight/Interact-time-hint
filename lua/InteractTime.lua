@@ -1,4 +1,7 @@
+local selected_original = BaseInteractionExt:selected
+
 function BaseInteractionExt:selected(player)
+	selected_original(self, player)
 	local interact_timer = 0
 	if self:_timer_value() then
 		interact_timer = self:_get_timer()
