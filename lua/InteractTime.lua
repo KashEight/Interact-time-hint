@@ -1,4 +1,4 @@
-local selected_original = BaseInteractionExt:selected
+local selected_original = BaseInteractionExt.selected
 
 function BaseInteractionExt:selected(player)
 	selected_original(self, player)
