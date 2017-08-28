@@ -10,7 +10,7 @@ function BaseInteractionExt:selected(player)
 				text = basic_text .. " (" .. self:check_interact_time() .. " s)",
 				icon = self._tweak_data.icon
 			})
-		elseif self.tweal_data == TripMineBase:get_name_id() then
+		elseif self.tweak_data == TripMineBase:get_name_id() then
 			local basic_text = managers.localization:text(TripMineBase:interaction_text_id(), _string_macros)
 			managers.hud:show_interact({
 				text = basic_text .. " (0.0 s)",
