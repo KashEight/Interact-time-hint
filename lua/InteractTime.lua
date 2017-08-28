@@ -1,6 +1,29 @@
-local selected_original = BaseInteractionExt.selected
-
 function BaseInteractionExt:selected(player)
+	local _text_id = self._tweak_data.text_id
+	-- local equipment_id = self._equipment_tweak_data.text_id
+	local _string_macros = {}
+	self:_add_string_macros(_string_macros)
+	if _text_id then
+		if self.tweak_data ~= TripMineBase:get_name_id() then
+			local basic_text = managers.localization:text(_text_id, _string_macros)
+			managers.hud:show_interact({
+				text = basic_text .. " (" .. self:check_interact_time() .. " s)",
+				icon = self._tweak_data.icon
+			})
+		elseif self.tweal_data == TripMineBase:get_name_id() then
+			local basic_text = managers.localization:text(TripMineBase:interaction_text_id(), _string_macros)
+			managers.hud:show_interact({
+				text = basic_text .. " (0.0 s)",
+				icon = self._tweak_data.icon
+			})
+		end
+	else
+		selected_original(self, player) 
+	end
+	return true
+end
+
+function BaseInteractionExt:check_interact_time()
 	local interact_timer = 0
 	if self:_timer_value() then
 		interact_timer = self:_get_timer()
@@ -18,17 +41,5 @@ function BaseInteractionExt:selected(player)
 			interact_timer = interact_timer .. ".0"
 		end
 	end
-	local _text_id = self._tweak_data.text_id
-	local _string_macros = {}
-	self:_add_string_macros(_string_macros)
-	if _text_id then
-		local basic_text = managers.localization:text(_text_id, _string_macros)
-		managers.hud:show_interact({
-			text = basic_text .. " (" .. interact_timer .. " s)",
-			icon = self._tweak_data.icon
-		})
-	else
-		selected_original(self, player)
-	end
-	return true
+	return interact_timer
 end

@@ -2,13 +2,14 @@ if not Steam then
     return
 end
 
-function executeScript(script)
-    local requiredScript = script:lower()
+function doScript(script)
+    local baseScript = script:lower()
     local hook_files = {
-        ["lib/units/interactions/interactionext"] = "InteractTime.lua"
+        ["lib/units/interactions/interactionext"] = "InteractTime.lua",
+        ["lib/units/weapons/trip_mine/tripminebase"] = "InteractTime.lua"
     }
-    if hook_files[requiredScript] then
-        local fileName = ModPath .. "lua/" .. hook_files[requiredScript]
+    if hook_files[baseScript] then
+        local fileName = ModPath .. "lua/" .. hook_files[baseScript]
         if io.file_is_readable(fileName) then
             log("[Info] Interact time hint was successfully loaded!")
             dofile(fileName)
@@ -16,10 +17,10 @@ function executeScript(script)
 			log("[Error] BLT could not open script '" .. fileName .. "'.")
 		end
     else
-        log("[Error] Unregistered script called: " .. requiredScript)
+        log("[Error] Unregistered script called: " .. baseScript)
     end
 end
 
 if RequiredScript then
-    executeScript(RequiredScript)
+    doScript(RequiredScript)
 end
