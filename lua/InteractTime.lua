@@ -1,3 +1,5 @@
+local selected_original = BaseInteractionExt.selected
+
 function BaseInteractionExt:selected(player)
 	local _text_id = self._tweak_data.text_id
 	-- local equipment_id = self._equipment_tweak_data.text_id
