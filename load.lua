@@ -6,7 +6,6 @@ function doScript(script)
     local baseScript = script:lower()
     local hook_files = {
         ["lib/units/interactions/interactionext"] = "InteractTime.lua",
-        ["lib/units/weapons/trip_mine/tripminebase"] = "InteractTime.lua"
     }
     if hook_files[baseScript] then
         local fileName = ModPath .. "lua/" .. hook_files[baseScript]
