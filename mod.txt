@@ -6,7 +6,7 @@
     "version": "v1.0.3",
     "priority": "50",
     "blt_version": 2.0,
-	"color": "0 255 0",
+    "color": "0 255 0",
     "hooks":
     [
         {
