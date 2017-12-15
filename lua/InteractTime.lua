@@ -1,24 +1,21 @@
 local selected_original = BaseInteractionExt.selected
 
 function BaseInteractionExt:selected(player)
-	local _text_id = self._tweak_data.text_id
+	local _text_id = self._tweak_data.text_id or alive(self._unit) and self._unit:base().interaction_text_id and self._unit:base():interaction_text_id()
 	local _string_macros = {}
+
 	self:_add_string_macros(_string_macros)
+
 	if _text_id then
 		local basic_text = managers.localization:text(_text_id, _string_macros)
 		managers.hud:show_interact({
 			text = basic_text .. " (" .. self:check_interact_time() .. " s)",
 			icon = self._tweak_data.icon
 		})
-	elseif self.tweak_data == TripMineBase:get_name_id() then
-		local basic_text = managers.localization:text(TripMineBase:interaction_text_id(), _string_macros)
-		managers.hud:show_interact({
-			text = basic_text .. " (0.0 s)",
-			icon = "equipment_trip_mine"
-		})
 	else
 		selected_original(self, player) 
 	end
+	
 	return true
 end
 

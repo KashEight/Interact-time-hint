@@ -11,5 +11,10 @@
         {
             "hook_id": "lib/units/interactions/interactionext", "script_path": "load.lua"
         }
+    ],
+    "updates": [
+        {
+            "identifier": "interact-time-hint"
+        }
     ]
 }
